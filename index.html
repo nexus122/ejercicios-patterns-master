@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica con pattern</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <form action="">
+        <label for="nombre">Nombre</label>
+        <input class="w3-input" type="text" placeholder="Maria" pattern="^[A-Z]{1}[a-zñçá-í]*" >
+        <label for="apellidos">Apellidos</label>
+        <input class="w3-input" type="text" placeholder="Maria Jimenez" pattern="^[A-Z]{1}[a-zñçá-í]*\s[A-Z]{1}[a-zñçá-í]*">
+        <label for="dni">DNI</label>
+        <input class="w3-input" type="text" placeholder="40536567U" pattern="^[1-9]{8}[A-Z]{1}$">
+        <label for="efectivo">Dinero en efectivo</label>
+        <input class="w3-input" type="text" placeholder="22.30" pattern="[1.9].[1-9]">
+        <label for="numero_movil">Número móvil</label>
+        <input class="w3-input" type="text" placeholder="666777888 +34666777888" pattern="^(6|7)[1-9]{8}|^\+34(6|7)[1-9]{8}">
+        <label for="mascota">Nombre mascota</label>
+        <input class="w3-input" type="text" placeholder="LoKi" pattern="\w{4,20}">
+        <input type="submit" value="Validar">
+        
+    </form>
+</body>
+</html>
