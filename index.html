@@ -1,29 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practica con pattern</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        /* Validos e invalidos */
+        input[type="text"]:invalid,
+        input[type="submit"]:invalid {
+            box-shadow: 2px 2px 2px 2px rgba(255, 0, 0, 0.4);
+        }
 
+        input[type="text"]:valid,
+        input[type="number"]:valid {
+            box-shadow: 2px 2px 2px 2px rgba(0, 255, 0, 0.4);
+        }
+
+        /* Tipos de input */
+        input[type="text"],
+        input[type="number"] {
+            margin-bottom: 1em;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            border: 0px;
+            background: #7811ED;
+            padding: 1em;
+            border-radius: 1em;
+            margin-top: 1em;
+            color: white;
+        }
+
+        .container {
+            padding: 1em;
+            min-width: 900px;
+        }
+        .contenedor{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            flex-wrap: wrap;
+        }
+        .a-100{
+            width: 100%;
+        }
+        .text-center{
+            text-align: center;
+        }
+
+    </style>
 </head>
+
 <body>
-    <form action="">
-        <label for="nombre">Nombre</label>
-        <input class="w3-input" type="text" placeholder="Maria" pattern="^[A-Z]{1}[a-zñçá-í]*" >
-        <label for="apellidos">Apellidos</label>
-        <input class="w3-input" type="text" placeholder="Maria Jimenez" pattern="^[A-Z]{1}[a-zñçá-í]*\s[A-Z]{1}[a-zñçá-í]*">
-        <label for="dni">DNI</label>
-        <input class="w3-input" type="text" placeholder="40536567U" pattern="^[1-9]{8}[A-Z]{1}$">
-        <label for="efectivo">Dinero en efectivo</label>
-        <input class="w3-input" type="text" placeholder="22.30" pattern="[1.9].[1-9]">
-        <label for="numero_movil">Número móvil</label>
-        <input class="w3-input" type="text" placeholder="666777888 +34666777888" pattern="^(6|7)[1-9]{8}|^\+34(6|7)[1-9]{8}">
-        <label for="mascota">Nombre mascota</label>
-        <input class="w3-input" type="text" placeholder="LoKi" pattern="\w{4,20}">
-        <input type="submit" value="Validar">
-        
-    </form>
+    <div class="contenedor">        
+        <form action="" name="" class="container">
+            <h1 class="a-100 text-center">Pattern en formularios</h1>
+            <label for="nombre">Nombre</label>
+            <input class="w3-input" type="text" placeholder="Maria" pattern="^[A-Z]{1}[a-zñçá-í]*" required>
+            <label for="apellidos">Apellidos</label>
+            <input class="w3-input" type="text" placeholder="Maria Jimenez"
+                pattern="^[A-Z]{1}[a-zñçá-í]*\s[A-Z]{1}[a-zñçá-í]*" required>
+            <label for="dni">DNI</label>
+            <input class="w3-input" type="text" placeholder="40536567U" pattern="^[1-9]{8}[A-Z]{1}$" required>
+            <label for="efectivo">Dinero en efectivo</label>
+            <input class="w3-input" type="text" placeholder="22.30" pattern="[0-9]+\.[0-9]{1,2}" required>
+            <label for="numero_movil">Número móvil</label>
+            <input class="w3-input" type="text" placeholder="666777888 +34666777888"
+                pattern="^(6|7)[0-9]{8}|^\+34(6|7)[0-9]{8}" required>
+            <label for="mascota">Nombre mascota</label>
+            <input class="w3-input" type="text" placeholder="LoKi" pattern="[A-Z a-z]{4,20}" required>
+            <input type="submit" value="Validar">
+
+            <div class="w3-panel w3-green w3-hide">
+                <h3>Perfecto 👌</h3>
+                <p>Todos los datos del formulario son correctos</p>
+            </div> 
+        </form>
+    </div>
+
+    <script>
+        let form = document.querySelector("form");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            console.log("Hemos enviado la información!");
+            document.querySelector(".w3-green").classList.remove("w3-hide");
+            setTimeout(ocultar, 2000);
+            function ocultar(){
+                document.querySelector(".w3-green").classList.add("w3-hide");
+            }
+        })
+    </script>
 </body>
+
 </html>
